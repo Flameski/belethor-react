@@ -43,7 +43,7 @@
 .product-modal {
   position: absolute;
   max-width: 450px;
-  min-width: 300px;
+  min-width: 270px;
   z-index: 99;
   top: 10%;
   left: 50%;
@@ -51,6 +51,11 @@
   border: 2px solid rebeccapurple;
   background-color: royalblue;
 }
+
+.product-modal img {
+  width: 100%;
+}
+
 .close-modal {
   position: absolute;
   top: 10px;
@@ -128,6 +133,7 @@
   display: grid;
   grid-template-columns: 100px 1fr;
   width: 380px;
+  height: 100px;
   background-color: palegoldenrod;
   margin: 10px 10px 0 10px;
 }
@@ -144,4 +150,14 @@
   position: absolute;
   top: 5px;
   right: 5px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 500px) {
+  .cart-details {
+    width: 300px;
+  }
+  .cart-item {
+    width: 280px;
+  }
 }
