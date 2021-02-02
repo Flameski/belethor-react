@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import CartDetails from './CartDetails';
+import cart from '../img/shopping-cart.svg';
 
 function Cart({ cartContents, remove }) {
   const [showDetails, setShowDetails] = useState(false);
@@ -24,9 +25,7 @@ function Cart({ cartContents, remove }) {
     <div>
       <div className="cart" onMouseDown={details}>
         <div>
-          Cart
-          <br />
-          img
+          <img src={cart} alt="shopping cart icon" />
         </div>
         <div>{itemsInCart}</div>
       </div>
