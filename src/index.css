@@ -179,8 +179,8 @@ body {
   padding-top: 10px;
 }
 
-.menu-visibility {
-  visibility: visible;
+.menu-closed {
+  visibility: hidden;
 }
 
 .menu-burger__middle {
@@ -208,6 +208,10 @@ body {
 
 .menu-burger__middle::after {
   transform: translateY(8px);
+}
+
+.menu-visibility {
+  visibility: visible;
 }
 
 @media screen and (max-width: 600px) {

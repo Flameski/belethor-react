@@ -15,7 +15,7 @@ function Navigation({ cartContents, remove }) {
         >
           <div className="menu-burger__middle"></div>
         </div>
-        <ul className={menuOpen ? '' : 'menu-visibility'}>
+        <ul className={menuOpen ? 'menu-visibility' : ''}>
           <li>Home</li>
           <li>Products</li>
           <li>About</li>
