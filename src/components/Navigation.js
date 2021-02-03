@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Cart from './Cart';
 
-function Navigation({ cartContents, remove }) {
+function Navigation({ cartContents, prices, remove }) {
   const [menuOpen, setMenuOpen] = useState(true);
 
   return (
@@ -21,7 +21,7 @@ function Navigation({ cartContents, remove }) {
           <li>About</li>
         </ul>
       </div>
-      <Cart cartContents={cartContents} remove={remove} />
+      <Cart cartContents={cartContents} prices={prices} remove={remove} />
     </nav>
   );
 }

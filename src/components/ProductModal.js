@@ -9,11 +9,12 @@ function ProductModal({ modalContent, close, updateCart }) {
         </div>
         <img src={modalContent.image} alt="" />
         <h2>{modalContent.name}</h2>
-        <p>{modalContent.type}</p>
+        <p>
+          <span style={{ color: 'gray' }}>{modalContent.type}</span>
+        </p>
         <p>{modalContent.description}</p>
         <div>
-          <div>price: {modalContent.value}</div>
-          <div>weight: {modalContent.weight}</div>
+          <div>Price: {modalContent.value} septims</div>
         </div>
         <div>
           <button onClick={() => updateCart(modalContent.id)}>

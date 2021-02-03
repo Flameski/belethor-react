@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import CartDetails from './CartDetails';
 import cart from '../img/shopping-cart.svg';
 
-function Cart({ cartContents, remove }) {
+function Cart({ cartContents, prices, remove }) {
   const [showDetails, setShowDetails] = useState(false);
   const details = () => {
     setShowDetails(!showDetails);
@@ -30,7 +30,11 @@ function Cart({ cartContents, remove }) {
         <div>{itemsInCart}</div>
       </div>
       {showDetails && (
-        <CartDetails cartContents={cartContents} remove={remove} />
+        <CartDetails
+          cartContents={cartContents}
+          prices={prices}
+          remove={remove}
+        />
       )}
     </div>
   );

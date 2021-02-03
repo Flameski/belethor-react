@@ -1,7 +1,10 @@
 import React from 'react';
 import CartItem from './CartItem';
 
-function CartDetails({ cartContents, remove }) {
+function CartDetails({ cartContents, prices, remove }) {
+  let totalTotalPrice = prices.reduce((total, curr) => {
+    return total + curr.value;
+  }, 0);
   if (cartContents.length === 0) {
     return <div className="cart-details">Your Cart Is Empty</div>;
   } else {
@@ -9,9 +12,20 @@ function CartDetails({ cartContents, remove }) {
       <div className="cart-details">
         <div className="cart-items">
           {cartContents.map((item) => {
-            return <CartItem {...item} key={item.cartId} remove={remove} />;
+            return (
+              <CartItem
+                {...item}
+                key={item.cartId}
+                prices={prices}
+                remove={remove}
+              />
+            );
           })}
         </div>
+        <div className="total-price">
+          TOTAL PRICE: {totalTotalPrice} septims
+        </div>
+        <button>Go to checkout</button>
       </div>
     );
   }
