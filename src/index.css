@@ -27,24 +27,65 @@ body {
 }
 
 .products {
+  background-color: floralwhite;
+  padding-bottom: 20px;
+}
+
+.products h2 {
+  text-align: center;
+  padding: 10px 0;
+  margin: 0;
+}
+
+.products-list {
   display: grid;
   grid-gap: 1rem;
   grid-template-columns: repeat(auto-fill, 250px);
   justify-content: center;
   width: 100%;
-  border: 2px solid red;
-  background-color: floralwhite;
 }
 
 .single-product {
   width: 250px;
-  border: 2px solid blue;
-  background-color: cadetblue;
+  background-color: tan;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border-radius: 5px;
+}
+
+.single-product:hover {
+  box-shadow: 0 0 15px 5px gray;
+}
+
+.single-product button {
+  font-family: 'Yusei Magic', sans-serif;
+  margin: 0 0 10px 10px;
+  border: 2px solid #604941;
+  border-radius: 10px;
+  background-color: blanchedalmond;
+  padding: 8px;
 }
 
 .item-image {
   width: 100%;
+}
+
+.item-name {
+  padding-left: 10px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.item-value {
+  padding: 10px;
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+.item-value::after {
+  content: ' septims';
+  font-weight: normal;
+  font-size: 1rem;
 }
 
 .product-modal {
@@ -55,8 +96,8 @@ body {
   top: 10%;
   left: 50%;
   transform: translateX(-50%);
-  border: 2px solid rebeccapurple;
-  background-color: royalblue;
+  border: 2px solid tan;
+  background-color: blanchedalmond;
 }
 
 .product-modal img {
@@ -123,7 +164,7 @@ body {
   align-items: center;
   width: 410px;
   min-height: 120px;
-  background-color: orange;
+  background-color: tan;
   position: fixed;
   top: 100px;
   right: 40px;
@@ -138,7 +179,7 @@ body {
 .cart-details::before {
   content: ' ';
   position: absolute;
-  background-color: orange;
+  background-color: tan;
   width: 20px;
   height: 20px;
   top: -10px;

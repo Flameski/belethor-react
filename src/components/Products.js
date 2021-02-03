@@ -33,19 +33,21 @@ function Products({ updateCart }) {
 
   return (
     <>
-      <h2>Product list</h2>
-      <div className="products">
-        {showModal && (
-          <ProductModal
-            modalContent={modalContent}
-            close={closeModal}
-            updateCart={updateCart}
-          /> //close e alias на closeModal, за да е по-кратко
-        )}
-        {inventory.map((item) => {
-          return <Item key={item.id} {...item} update={updateProductModal} />; //update e alias на updateProductModal, за да е по-кратко
-        })}
-      </div>
+      <section className="products">
+        <h2>Product list</h2>
+        <div className="products-list">
+          {showModal && (
+            <ProductModal
+              modalContent={modalContent}
+              close={closeModal}
+              updateCart={updateCart}
+            /> //close e alias на closeModal, за да е по-кратко
+          )}
+          {inventory.map((item) => {
+            return <Item key={item.id} {...item} update={updateProductModal} />; //update e alias на updateProductModal, за да е по-кратко
+          })}
+        </div>
+      </section>
     </>
   );
 }

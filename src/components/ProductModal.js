@@ -2,8 +2,8 @@ import React from 'react';
 
 function ProductModal({ modalContent, close, updateCart }) {
   return (
-    <div className="modal-background">
-      <div className="product-modal">
+    <div className="modal-background" onMouseDown={close}>
+      <div className="product-modal" onMouseDown={(e) => e.stopPropagation()}>
         <div className="close-modal" onMouseDown={close}>
           X
         </div>

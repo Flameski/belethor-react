@@ -1,21 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import BuyButton from './BuyButton';
 
-function Item({ id, name, image, update }) {
-  const [mouseOver, setMouseOver] = useState(false);
+function Item({ id, name, image, value, update }) {
   return (
     <div
       className="single-product"
-      onMouseEnter={() => {
-        setMouseOver(true);
-      }}
-      onMouseLeave={() => {
-        setMouseOver(false);
+      onMouseDown={() => {
+        update(id);
       }}
     >
       <img src={image.default} alt={name} className="item-image" />
-      <p>{name}</p>
-      <BuyButton id={id} mouseOver={mouseOver} update={update} />
+      <p className="item-name">{name}</p>
+      <p className="item-value">{value}</p>
+      <BuyButton id={id} update={update} />
     </div>
   );
 }

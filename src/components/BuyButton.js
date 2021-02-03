@@ -1,6 +1,6 @@
 import React from 'react';
 
-function BuyButton({ id, mouseOver, update }) {
+function BuyButton({ id, update }) {
   return (
     <div key={id}>
       <button
