@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { inventory } from '../data/inventory';
 import Item from './Item';
 import ProductModal from './ProductModal';
+import Filters from './Filters';
 
 function Products({ updateCart }) {
   const [showModal, setShowModal] = useState(false);
@@ -30,11 +31,33 @@ function Products({ updateCart }) {
   const closeModal = () => {
     setShowModal(false);
   };
-
+  const [textFilter, setTextFilter] = useState('');
+  const [filterBy, setFilterBy] = useState('name');
+  let tempFilteredInventory = inventory.filter((item) => {
+    return item.name.toLowerCase().includes(textFilter.toLowerCase());
+  });
+  let filteredInventory = tempFilteredInventory.sort((a, b) => {
+    switch (filterBy) {
+      case 'name':
+        return a.name - b.name;
+      case 'priceHigh':
+        return b.value - a.value;
+      case 'priceLow':
+        return a.value - b.value;
+      default:
+        break;
+    }
+    return 0;
+  });
   return (
     <>
       <section className="products">
         <h2>Product list</h2>
+        <Filters
+          textFilter={textFilter}
+          setTextFilter={setTextFilter}
+          setFilterBy={setFilterBy}
+        />
         <div className="products-list">
           {showModal && (
             <ProductModal
@@ -43,7 +66,7 @@ function Products({ updateCart }) {
               updateCart={updateCart}
             /> //close e alias на closeModal, за да е по-кратко
           )}
-          {inventory.map((item) => {
+          {filteredInventory.map((item) => {
             return <Item key={item.id} {...item} update={updateProductModal} />; //update e alias на updateProductModal, за да е по-кратко
           })}
         </div>

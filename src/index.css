@@ -318,6 +318,37 @@ body {
   visibility: visible;
 }
 
+.filters {
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.filters input {
+  background-color: palegoldenrod;
+  display: inline-block;
+  border-radius: 5px;
+  height: 30px;
+  margin: 10px 10px 10px 30px;
+  width: 300px;
+  font-size: 1.2rem;
+  font-family: 'Yusei Magic', sans-serif;
+}
+
+.filters span {
+  display: inline-block;
+  margin: 10px 30px;
+  background-color: rgb(200, 200, 200);
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.show-filters {
+  display: none;
+  text-align: center;
+  color: grey;
+  margin: 10px;
+}
+
 @media screen and (max-width: 600px) {
   .cart-details {
     width: 300px;
@@ -339,5 +370,18 @@ body {
   }
   .menu-visibility {
     visibility: hidden;
+  }
+  .filters {
+    text-align: left;
+    display: none;
+  }
+  .filters-open {
+    display: block;
+  }
+  .filters input {
+    width: 170px;
+  }
+  .show-filters {
+    display: block;
   }
 }
