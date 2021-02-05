@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import Navigation from './components/Navigation';
-import Main from './components/Main';
+import Home from './components/Home';
 import Products from './components/Products';
+import Error from './components/404';
 import { inventory } from './data/inventory';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App() {
   const [cartContents, setCartContents] = useState([]);
-  const [prices, setPrices] = useState([]);
+  const [prices, setPrices] = useState([]); // масив с обекти, като всеки обект е с id и цена
   let [cartId, setCartId] = useState(0); //уникални ID-та на всеки запис на продукт в кошницата, различен от ID-то на самия продукт
   const updateCart = (id) => {
     let exists = false; // проверка дали продукт с това id вече присъства в кошницата
@@ -51,15 +53,22 @@ function App() {
     setPrices(tempPrices);
   };
   return (
-    <div className="app">
-      <Navigation
-        cartContents={cartContents}
-        prices={prices}
-        remove={removeItem}
-      />
-      <Main />
-      <Products updateCart={updateCart} />
-    </div>
+    <Router>
+      <div className="app">
+        <Navigation
+          cartContents={cartContents}
+          prices={prices}
+          remove={removeItem}
+        />
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/products">
+            <Products updateCart={updateCart} />
+          </Route>
+          <Route component={Error} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
